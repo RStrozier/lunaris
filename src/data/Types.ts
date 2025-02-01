@@ -1,4 +1,5 @@
 export interface TaskFormData {
-    task: string;
-    taskCreatedDate: string;
-}
+    task: string; 
+    dueDate?: string; 
+    priority?: string; 
+  }
