@@ -1,5 +1,6 @@
 import AddTaskModal from "../components/modals/AddTaskModal";
 import DisplayTaskModal from "../components/modals/DisplayTaskModal";
+import ManageTasksModal from "../components/modals/ManageTasksModal";
 import TaskDueModal from "../components/modals/TaskDueModal";
 import TaskPriorityModal from "../components/modals/TaskPriorityModal";
 
@@ -21,6 +22,7 @@ const Home = () => {
                 <div className="priority-task-container">
                    <TaskPriorityModal />
                 </div>
+                <ManageTasksModal />
             </div>
         </div>
     );

@@ -18,6 +18,7 @@ const DisplayTaskModal = () => {
       <button className="mt-2 btn btn-primary" onClick={handleModalOpen}>
        View All Tasks
       </button>
+      
       <ModalLayout open={isModalOpen} onClose={handleModalClose}>
         {/* Render TaskForm inside the modal */}
         {isModalOpen && <TaskDisplay />}

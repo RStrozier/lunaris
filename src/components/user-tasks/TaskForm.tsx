@@ -26,7 +26,8 @@ const TaskForm = () => {
         task: data.task, // The task description entered by the user
         createdAt: Timestamp.now(), // Automatically set the timestamp to the current date and time
         dueDate, // Local midnight due date
-        priority: data.priority || "Normal",
+        priority: data.priority || "Low",
+        completed: false,
       });
   
       setMessage("Task added successfully!");
@@ -36,7 +37,7 @@ const TaskForm = () => {
       setMessage("Failed to add task. Please try again.");
     }
   };
-  
+
   return (
     <>
       <div className="container-lg mt-3">

@@ -14,10 +14,12 @@ export const getTaskData = async (): Promise<Task[]> => {
       const dueDate = data.dueDate?.toDate().toLocaleDateString(); // Local date
 
       return {
+        id: doc.id, // Add the Firestore document ID here
         task: data.task,
         createdAt, // Formatted as local date
         dueDate,   // Formatted as local date
         priority: data.priority || "low", // Default to "low" if priority is not set
+        completed: data.completed || false, // Default to "false" if not set
       };
     });
     return taskList;

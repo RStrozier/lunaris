@@ -16,7 +16,7 @@ const TasksDueToday = () => {
         const taskData = await getTaskData();
         setTasks(taskData);
         // get today's local date and convert to UTC string
-        const today = new Date().toLocaleDateString(); 
+        const today = new Date().toLocaleDateString();
         // look for task that due date are equal to today
         const filteredTasks = taskData.filter((task) => task.dueDate === today);
         // and set to filtered tasks
@@ -51,6 +51,12 @@ const TasksDueToday = () => {
               )}
               {task.dueDate && (
                 <div className="text-muted">Due: {task.dueDate}</div>
+              )}
+              {task.completed && (
+                <div className="text-muted">Task Completed!</div>
+              )}
+              {!task.completed && (
+                <div className="text-danger">Task Not Done</div>
               )}
             </li>
           ))}

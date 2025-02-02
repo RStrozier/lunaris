@@ -11,8 +11,10 @@ export interface TaskFormData {
   }
 
   export interface Task {
+    id: string; // Firestore document ID
     task: string;
     createdAt?: string;
     dueDate?: string;
     priority?: string;
+    completed?: boolean;
   }

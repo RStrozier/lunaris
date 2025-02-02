@@ -1,8 +1,8 @@
 import { useState } from "react";
-import TaskPriority from "../user-tasks/TaskPriority";
 import ModalLayout from "../ModalLayout";
+import ManageTasks from "../user-tasks/ManageTasks";
 
-const TaskPriorityModal = () => {
+const ManageTasksModal = () => {
     // use state to open and close modal
     const [isModalOpen, setModalOpen] = useState(false);
 
@@ -18,15 +18,15 @@ const TaskPriorityModal = () => {
         <>
             {/* opens the modal on click */}
             <button className="mt-2 btn btn-primary" onClick={handleModalOpen}>
-                Tasks By Priority
+                Manage Current/Complete Tasks
             </button>
 
             {/* Reusable Modal Wrapper */}
             <ModalLayout open={isModalOpen} onClose={handleModalClose}>
-                <TaskPriority />
+                <ManageTasks />
             </ModalLayout>
         </>
     )
 }
 
-export default TaskPriorityModal
+export default ManageTasksModal
