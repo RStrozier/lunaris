@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useLoading } from "../../context/LoadingContext";
 import LoadingIndicator from "../LoadingIndicator";
-import useTasks from "../../hooks/UseTasks";
+import useTasks from "../../hooks/useTasks";
 
 const TaskDisplay = () => {
   // Fetch tasks using custom hook

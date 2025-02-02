@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useLoading } from "../../context/LoadingContext";
-import useTasks from "../../hooks/UseTasks";
 import { updateDoc, doc } from "firebase/firestore";
 import { db } from "../../auth/firebaseConfig";
+import useTasks from "../../hooks/useTasks";
 
 const ManageTasks = () => {
     // call in our custom context and hook

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useLoading } from "../../context/LoadingContext";
-import useTasks from "../../hooks/UseTasks";
 import LoadingIndicator from "../LoadingIndicator";
+import useTasks from "../../hooks/useTasks";
 
 const TaskPriority = () => {
   // call in loading context and useTasks custom hook
