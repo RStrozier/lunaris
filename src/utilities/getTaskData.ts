@@ -1,5 +1,5 @@
-import { db } from "../auth/firebaseConfig";
 import { collection, getDocs } from "firebase/firestore";
+import { db } from "../auth/firebaseConfig";
 import { Task } from "../data/Types";
 
 export const getTaskData = async (): Promise<Task[]> => {
@@ -9,16 +9,15 @@ export const getTaskData = async (): Promise<Task[]> => {
     const taskList: Task[] = taskSnapshot.docs.map((doc) => {
       const data = doc.data();
 
-      // Convert Firestore Timestamps to readable strings (if they exist)
-      const createdAt = data.createdAt?.toDate().toLocaleString();
-      const dueDate = data.dueDate?.toDate().toLocaleString();
+      // Convert Firestore Timestamps to local date strings
+      const createdAt = data.createdAt?.toDate().toLocaleDateString(); // Local date
+      const dueDate = data.dueDate?.toDate().toLocaleDateString(); // Local date
 
       return {
         task: data.task,
-        createdAt, 
-        dueDate,   
-        // defaults to low priority if none is set
-        priority: data.priority || "low",
+        createdAt, // Formatted as local date
+        dueDate,   // Formatted as local date
+        priority: data.priority || "low", // Default to "low" if priority is not set
       };
     });
     return taskList;

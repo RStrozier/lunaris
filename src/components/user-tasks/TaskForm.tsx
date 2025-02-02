@@ -15,28 +15,28 @@ const TaskForm = () => {
   // Function to handle form submission
   const onSubmit: SubmitHandler<TaskFormData> = async (data) => {
     try {
-      // Reference to "tasks" fb method collection in Firestore
       const tasksCollection = collection(db, "tasks");
-
-      // Add the new task to Firestore
+  
+      // Parse the dueDate as local midnight
+      const dueDate = data.dueDate
+        ? Timestamp.fromDate(new Date(`${data.dueDate}T00:00:00`)) // Local midnight
+        : null;
+  
       await addDoc(tasksCollection, {
         task: data.task, // The task description entered by the user
-        createdAt: Timestamp.now(), // Automatically set the timestamp to the current date and time FIREBASE 
-        dueDate: data.dueDate ? Timestamp.fromDate(new Date(data.dueDate)) : null, // Convert the selected due date to a Firestore Timestamp, or set to null if not provided
-        priority: data.priority || "Normal", // Use the selected priority or default to "Normal" if none is selected
+        createdAt: Timestamp.now(), // Automatically set the timestamp to the current date and time
+        dueDate, // Local midnight due date
+        priority: data.priority || "Normal",
       });
-
-      // Set success message
+  
       setMessage("Task added successfully!");
-      // Clear the form inputs
-      reset(); // 
+      reset();
     } catch (error) {
-      // Set error message
       console.error("Error adding task to Firestore:", error);
       setMessage("Failed to add task. Please try again.");
     }
   };
-
+  
   return (
     <>
       <div className="container-lg mt-3">
