@@ -1,6 +1,6 @@
 import AddTaskModal from "../components/modals/AddTaskModal";
 import DisplayTaskModal from "../components/modals/DisplayTaskModal";
-import TasksDueToday from "../components/user-tasks/TasksDueToday";
+import TaskDueModal from "../components/modals/TaskDueModal";
 
 const Home = () => {
 
@@ -15,7 +15,7 @@ const Home = () => {
                     <DisplayTaskModal />
                 </div>
                 <div className="due-task-container">
-                    <TasksDueToday />
+                    <TaskDueModal/>
                 </div>
 
             </div>

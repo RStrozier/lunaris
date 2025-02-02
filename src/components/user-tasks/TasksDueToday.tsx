@@ -31,6 +31,9 @@ const TasksDueToday = () => {
     fetchTasks();
   }, [setLoading]);
 
+  // here for build 
+  console.log(tasks);
+
   return (
     <div className="container-lg mt-3">
       <h3 className="text-center mb-3">Tasks Due Today</h3>
