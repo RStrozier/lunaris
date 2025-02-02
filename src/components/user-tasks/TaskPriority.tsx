@@ -6,7 +6,9 @@ import useTasks from "../../hooks/useTasks";
 const TaskPriority = () => {
   // call in loading context and useTasks custom hook
   const { loading, setLoading } = useLoading();
+  // use custom context
   const tasks = useTasks(setLoading);
+  console.log(tasks);
 
   // State to track the selected priority
   const [selectedPriority, setSelectedPriority] = useState("");
