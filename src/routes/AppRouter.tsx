@@ -2,7 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "../pages/Home";
 import ErrorPage from "../pages/ErrorPage";
 import Layout from "../components/Layout";
-import TaskDisplay from "../components/TaskDisplay";
+import TaskDisplay from "../components/user-tasks/TaskDisplay";
 
 const AppRouter = () => {
   return (

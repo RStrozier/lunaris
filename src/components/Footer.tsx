@@ -1,7 +1,9 @@
 
 const Footer = () => {
   return (
-    <div>Footer</div>
+    <div className="">Lunaris is owned and maintained by Gensis Digital 
+    Agency. All rights reserved. Copyright @2025
+    </div>
   )
 }
 

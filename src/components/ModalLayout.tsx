@@ -1,8 +1,10 @@
-import React from "react";
 import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
+import IconButton from "@mui/material/IconButton";
+import CloseIcon from "@mui/icons-material/Close";
+import { ModalLayoutProps } from "../data/Types";
 
-const style = {
+const modalLayoutStyle = {
   position: "absolute" as "absolute",
   top: "50%",
   left: "50%",
@@ -14,16 +16,18 @@ const style = {
   borderRadius: "8px",
 };
 
-interface ModalLayoutProps {
-  open: boolean;
-  onClose: () => void;
-  children: React.ReactNode;
-}
-
 const ModalLayout = ({ open, onClose, children }: ModalLayoutProps) => {
   return (
     <Modal open={open} onClose={onClose}>
-      <Box sx={style}>
+      <Box sx={modalLayoutStyle }>
+          {/* Close button in top right corner of modal */}
+          <IconButton
+          onClick={onClose}
+          sx={{ position: "absolute", top: 8, right: 8 }}
+          aria-label="close"
+        >
+          <CloseIcon />
+        </IconButton>
         {children}
       </Box>
     </Modal>

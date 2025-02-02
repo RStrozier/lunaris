@@ -1,6 +1,6 @@
 import { useForm, SubmitHandler } from "react-hook-form";
-import { TaskFormData } from "../data/Types";
-import { db } from "../auth/firebaseConfig";
+import { TaskFormData } from "../../data/Types";
+import { db } from "../../auth/firebaseConfig";
  // Firestore methods
 import { collection, addDoc, Timestamp } from "firebase/firestore";
 import { useState } from "react";
@@ -40,6 +40,7 @@ const TaskForm = () => {
       <div className="container-lg mt-3">
         {/* Form to add a new task */}
         <form onSubmit={handleSubmit(onSubmit)}>
+          <h3 className="text-center mb-2">Add Task</h3>
           {/* Task Input */}
           <div className="mb-3">
             <label htmlFor="task" className="form-label">
@@ -135,7 +136,7 @@ const TaskForm = () => {
 
           {/* Submit Button */}
           <button type="submit" className="btn btn-primary">
-            Submit Task
+            Save and Close
           </button>
         </form>
 

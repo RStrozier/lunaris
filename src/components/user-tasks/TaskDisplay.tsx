@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { db } from "../auth/firebaseConfig"; // Import Firestore configuration
+import { db } from "../../auth/firebaseConfig"; 
 import { collection, getDocs } from "firebase/firestore"; // Firestore methods
 
 // Define the structure of a task
@@ -24,7 +24,7 @@ const TaskDisplay = () => {
           // Fetch all documents from the "tasks" collection
           const taskSnapshot = await getDocs(tasksCollection);
   
-          // Extract task names and process the createdAt field
+          // Get task names and process the createdAt field
           const taskData = taskSnapshot.docs.map((doc) => {
             const data = doc.data();
             return {
@@ -45,7 +45,6 @@ const TaskDisplay = () => {
   
     return (
       <div className="container-lg">
-        <h2 className="m-3">Task Names</h2>
         <ul style={{ listStyleType: 'none' }}>
           {/* Map through the tasks and display each task name */}
           {tasks.map((task, index) => (
