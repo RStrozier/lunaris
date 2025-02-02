@@ -36,7 +36,16 @@ const TaskDisplay = () => {
 
       {/* Render tasks if available */}
       {!loading && tasks.length > 0 && (
-        <ul className="list-unstyled">
+        <>
+        <h3 className="text-center m-1">Current Task List</h3>
+
+        <div className="row mt-2 justify-content-center text-primary">
+            <div className="col-auto">Today</div>
+            <div className="col-auto">This Week</div>
+            <div className="col-auto">Month Object</div>
+        </div>
+     
+         <ul className="list-unstyled mt-2">
           {tasks.map((task, index) => (
             <li key={index} className="mb-3">
               <div className="fw-bold fs-5">{task.task}</div>
@@ -58,6 +67,7 @@ const TaskDisplay = () => {
             </li>
           ))}
         </ul>
+        </>
       )}
 
       {/* Show "No tasks available" if tasks are empty and not loading */}

@@ -1,6 +1,6 @@
 import { useState } from "react";
-import TaskDisplay from "../user-tasks/TaskDisplay";
 import ModalLayout from "../ModalLayout";
+import TaskDisplay from "../user-tasks/TaskDisplay";
 
 const DisplayTaskModal = () => {
   const [isModalOpen, setModalOpen] = useState(false);
@@ -16,10 +16,10 @@ const DisplayTaskModal = () => {
   return (
     <>
       <button className="mt-2 btn btn-primary" onClick={handleModalOpen}>
-        Show All Tasks
+       View All Tasks
       </button>
       <ModalLayout open={isModalOpen} onClose={handleModalClose}>
-        {/* Render TaskDisplay only when modal is open */}
+        {/* Render TaskForm inside the modal */}
         {isModalOpen && <TaskDisplay />}
       </ModalLayout>
     </>

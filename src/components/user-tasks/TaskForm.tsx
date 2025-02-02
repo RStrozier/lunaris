@@ -1,13 +1,13 @@
 import { useForm, SubmitHandler } from "react-hook-form";
 import { TaskFormData } from "../../data/Types";
 import { db } from "../../auth/firebaseConfig";
- // Firestore methods
+// Firestore methods
 import { collection, addDoc, Timestamp } from "firebase/firestore";
 import { useState } from "react";
 
 const TaskForm = () => {
   // React Hook Form setup
-  const { register, handleSubmit, formState: { errors }} = useForm<TaskFormData>();
+  const { register, handleSubmit, formState: { errors }, reset } = useForm<TaskFormData>();
 
   // State to handle success or error messages 
   const [message, setMessage] = useState<string | null>(null);
@@ -28,10 +28,12 @@ const TaskForm = () => {
 
       // Set success message
       setMessage("Task added successfully!");
+      // Clear the form inputs
+      reset(); // 
     } catch (error) {
-        // Set error message
+      // Set error message
       console.error("Error adding task to Firestore:", error);
-      setMessage("Failed to add task. Please try again."); 
+      setMessage("Failed to add task. Please try again.");
     }
   };
 
@@ -50,7 +52,7 @@ const TaskForm = () => {
               id="task"
               type="text"
               className={`form-control ${errors.task ? "is-invalid" : ""}`}
-              placeholder="Enter task" 
+              placeholder="Enter task"
               {...register("task", { required: "Task is required" })} // Register the "task" field with validation
             />
             {errors.task && (
@@ -82,7 +84,7 @@ const TaskForm = () => {
                   type="radio"
                   value="Low"
                   className="form-check-input"
-                  {...register("priority")} 
+                  {...register("priority")}
                 />
                 <label htmlFor="priorityLow" className="form-check-label">
                   Low
@@ -96,7 +98,7 @@ const TaskForm = () => {
                   type="radio"
                   value="Normal"
                   className="form-check-input"
-                  defaultChecked 
+                  defaultChecked
                   {...register("priority")}
                 />
                 <label htmlFor="priorityNormal" className="form-check-label">
@@ -134,20 +136,20 @@ const TaskForm = () => {
             </div>
           </div>
 
-          {/* Submit Button */}
-          <button type="submit" className="btn btn-primary">
-            Save and Close
+
+          {/* Save */}
+          <button type="submit" className="mt-2 btn btn-primary w-75 mx-auto d-block">
+            Save
           </button>
         </form>
 
         {/* Success or Error Message */}
         {message && (
           <div
-            className={`mt-3 alert ${
-              message.includes("successfully")
+            className={`mt-3 alert ${message.includes("successfully")
                 ? "alert-success" // Success alert styling
                 : "alert-danger" // Error alert styling
-            }`}
+              }`}
           >
             {message}
           </div>

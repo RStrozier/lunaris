@@ -17,7 +17,8 @@ export const getTaskData = async (): Promise<Task[]> => {
         task: data.task,
         createdAt, 
         dueDate,   
-        priority: data.priority || "No Priority",
+        // defaults to low priority if none is set
+        priority: data.priority || "low",
       };
     });
     return taskList;
