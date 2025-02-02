@@ -9,3 +9,10 @@ export interface TaskFormData {
     onClose: () => void;
     children: React.ReactNode;
   }
+
+  export interface Task {
+    task: string;
+    createdAt?: string;
+    dueDate?: string;
+    priority?: string;
+  }

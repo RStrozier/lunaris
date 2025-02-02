@@ -6,7 +6,7 @@ const Home = () => {
 
     return (
         <div className="container">
-            <div className="container-lg">
+            <div className="container-lg mt-2">
                 <AddTaskModal />
                 <DisplayTaskModal />
             </div>
