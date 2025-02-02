@@ -58,11 +58,12 @@ const ManageTasks = () => {
                     <p>Loading tasks...</p>
                 ) : activeTab === "incomplete" ? (
                     // Incomplete Tasks Tab
-                    <ul className="space-y-4">
+                    
+                    <ul className="space-y-4 list-unstyled m-2">
                         {incompleteTasks.map((task) => (
                             <li
                                 key={task.id}
-                                className="flex justify-between items-center p-4 bg-gray-100 rounded shadow"
+                                className="flex justify-between items-center p-4 m-1 bg-gray-100 rounded shadow"
                             >
                                 <span>{task.task}</span>
                                 <button
@@ -80,11 +81,11 @@ const ManageTasks = () => {
                     </ul>
                 ) : (
                     // Completed Tasks Tab
-                    <ul className="space-y-4">
+                    <ul className="space-y-4 list-unstyled m-2">
                         {completedTasks.map((task) => (
                             <li
                                 key={task.id}
-                                className="flex justify-between items-center p-4 bg-gray-100 rounded shadow"
+                                className="flex justify-between items-center p-4 m-1 bg-gray-100 rounded shadow"
                             >
                                 <span>{task.task}</span>
                                 <button

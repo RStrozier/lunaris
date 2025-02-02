@@ -135,6 +135,12 @@ const TaskDisplay = () => {
                       <span className="fw-bold">Priority:</span> {task.priority}
                     </div>
                   )}
+                  {/* completed is coming blank, need to put words to true/false boolean */}
+                    {task.completed && (
+                    <div className="text-muted">
+                      <span className="fw-bold">Completed:</span> {task.completed}
+                    </div>
+                  )}
                 </li>
               ))}
             </ul>
